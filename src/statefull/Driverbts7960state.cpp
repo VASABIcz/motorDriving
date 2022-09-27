@@ -46,10 +46,9 @@ bool Driverbts7960state::isSpinningRight() const {
 
 void Driverbts7960state::setSpeed(unsigned char speed) {
     this->speed = speed;
-    // this should not be needed because unsigned char has 0 -> 255 possible values that's just right amount for driver
-    // but it could help prevent overflows and underflows not sure
-    if (this->speed > 255) this->speed = 255;
-    else if (this->speed < 0) this->speed = 0;
+    // TODO check for overflows in spinSlower/Faster
+    // if (this->speed > 255) this->speed = 255;
+    // else if (this->speed < 0) this->speed = 0;
 }
 
 void Driverbts7960state::spinFaster(unsigned char speed) {
